@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 
 
-const Cart = ({cartItems,handleAddProduct, handleRemoveProduct, handleCartClear}) => {
+const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClear }) => {
     const totalPrice = cartItems.reduce(
-        (price, item)=> price + item.quantity*item.price,
+        (price, item) => price + item.quantity * item.price,
         0);
     return (
         <SectionCart>
@@ -13,29 +13,29 @@ const Cart = ({cartItems,handleAddProduct, handleRemoveProduct, handleCartClear}
                 Cart Items
             </h3>
             <div className="clearbutton">
-                {cartItems.length >=1 && (
-                    <button onClick={ handleCartClear}>Remove All</button>
+                {cartItems.length >= 1 && (
+                    <button onClick={handleCartClear}>Remove All</button>
                 )}
             </div>
             {cartItems.length === 0 && (
                 <h3>No items are Added.</h3>
             )}
             <CartItem>
-                {cartItems.map((item)=>(
+                {cartItems.map((item) => (
                     <div key={item.id}>
                         <img src={item.image}
-                        alt="..." 
+                            alt="..."
                         />
                         <h3>{item.title}</h3>
                         <p>$ {item.price}</p>
-                        <button onClick={()=> handleAddProduct(item)}>
+                        <button onClick={() => handleAddProduct(item)}>
                             +
                         </button>
-                        <button  onClick={()=> handleRemoveProduct(item)}>
+                        <button onClick={() => handleRemoveProduct(item)}>
                             -
                         </button>
                         <div className="count">
-                            {item.quantity} * $ {item.price}
+                            {item.quantity}
                         </div>
                     </div>
                 ))}
@@ -51,7 +51,7 @@ const Cart = ({cartItems,handleAddProduct, handleRemoveProduct, handleCartClear}
 }
 export default Cart
 //styled-components
-const SectionCart =styled.div`
+const SectionCart = styled.div`
 padding-top: 10%;
 @media (max-width: 1366px){
     padding-top: 10%;
@@ -77,7 +77,6 @@ padding-top: 10%;
 @media (max-width: 320px){
     padding-top: 30%;
 }
-
 text-align: center;
 .clearbutton{
     display: flex;
@@ -101,11 +100,24 @@ const CartItem = styled.div`
         align-items: center;
         img{
             width: 150px;
+            @media (max-width: 615px){
+                width: 124px;
+            }
+            @media (max-width: 480px){
+                width: 103px;
+            }
             border: 1px solid red;
             margin-bottom:5px ;
         }
         h3{
             padding: 0 20px;
+            @media (max-width: 615px){
+                font-size: 18px;
+            }
+            @media (max-width: 480px){
+                font-size: 18px;
+            }
+
         }
         p{
             padding: 0 20px;
