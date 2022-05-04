@@ -1,0 +1,16 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: 'Adorable', sans-serif;
+  font-family: 'Epilogue', sans-serif; 
+  font-family: 'DM Sans', sans-serif;    */
+  /* color: #00ff00,#da6786, #606060 ,#ff8553; */
+  color: black;
+}
+.clr{
+  clear: both;
+}
+img{
+  width: 100%;
+}
